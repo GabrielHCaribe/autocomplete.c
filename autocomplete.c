@@ -4,7 +4,7 @@
 #include "autocomplete.h"
 
 
-void read_in_terms(struct term **terms, int *pnterms, char *filename)
+void read_in_terms(term **terms, int *pnterms, char *filename)
 {
     FILE *file = fopen(filename, "r");
     if (file == NULL){
