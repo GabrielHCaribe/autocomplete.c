@@ -20,7 +20,19 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
     
     char buffer[256]; // Adjust the buffer size as needed
 
-    
+    // New version
+    for(int i = 0; i < (*pnterms) + 1; i++)
+    {
+        fgets(line, sizeof(line), file);
+        if (i == 0)
+        {
+            continue;
+        }
+        else
+        {
+            
+        }
+    }
 
     
 
