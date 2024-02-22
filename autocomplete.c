@@ -18,8 +18,7 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
 
     (*terms) = (term *)malloc(sizeof(term)*(*pnterms));
     
-    char buffer[256]; // Adjust the buffer size as needed
-
+    
     // New version
     for(int i = 0; i < (*pnterms) + 1; i++)
     {
