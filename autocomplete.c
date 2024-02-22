@@ -12,7 +12,7 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
         exit(1);
     }
 
-    char *number = (char *)malloc(sizeof(char) * 200);
+    char *line  = (char *)malloc(sizeof(char) * 200);
     fgets(number, 200, file);
     *pnterms = atoi(number);
 
