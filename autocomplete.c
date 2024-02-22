@@ -12,7 +12,9 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
         exit(1);
     }
 
-    
+    char *number;
+    fgets(number, 200, file);
+    *pnterms = atoi(number);
 
     fclose(file);
 
