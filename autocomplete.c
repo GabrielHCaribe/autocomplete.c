@@ -22,8 +22,8 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
     {
         fgets(line, 200, file);
         
-        int temp;
-        sscanf(line, "%d", &temp);
+        double temp;
+        sscanf(line, "%lf", &temp);
         (*terms + i)->weight = temp;
         
         memmove(&((*terms + i)->term), &(line[14]), 200);
