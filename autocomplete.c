@@ -109,6 +109,23 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
     //what if the string is not equal?
     //< 0 if the 1st non matching char has a lower ascci value in s1 than s2
     //> 0 if the first non matching char has a higher ascii value in s1 than s2
+//////////////////////////////////////////////////
+int binary_search( int a[], int elem, int left, int right )//--> e: elem to find. left,right is the end point
+{
+     int mid = left + (right - left) / 2; //This is how we define the mid point
+     if (left > right){
+        return -1;
+     }
+     
+     if (a[mid] == elem){
+        return mid;
+     }
+     else if (a[mid] > elem){
+          return binary_search(a, elem ,left, mid - 1 );
+    }
+    else{
+        return binary_search(a, elem, mid +1,right);
+    }
     
 
 
