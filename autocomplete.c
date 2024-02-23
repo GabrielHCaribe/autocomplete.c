@@ -4,6 +4,9 @@
 #include "autocomplete.h"
 
 
+int compare_terms(const void *a, const void *b) {
+    return strcmp(((term *)a)->term, ((term *)b)->term);
+
 void read_in_terms(term **terms, int *pnterms, char *filename)
 {
     FILE *file = fopen(filename, "r");
@@ -31,6 +34,7 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
     }
 
     fclose(file);
+    qsort(*terms, *pnterms, sizeof(term), compare_terms);
 
 
 }
