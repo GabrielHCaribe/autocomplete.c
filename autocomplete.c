@@ -18,27 +18,24 @@ void read_in_terms(term **terms, int *pnterms, char *filename)
 
     (*terms) = (term *)malloc(sizeof(term)*(*pnterms));
     
-    
-    // New version
-    for(int i = 0; i < (*pnterms) + 1; i++)
+    for(int i = 0; i < (*pnterms); i++)
     {
-        fgets(line, sizeof(line), file);
-        if (i == 0)
-        {
-            continue;
-        }
-        else
-        {
-             
-        }
-    }
+        fgets(line, 200, file);
+        
+        int temp;
+        sscanf(line, "%d", &temp);
+        (*terms + i)->weight = temp;
+        
+        memmove(&((*terms + i)->term), &(line[14]), 200);
 
-    
+    }
 
     fclose(file);
 
 
 }
+//////////////////////////////
+
 
 int compare_terms(const void *a, const void *b) {
     return strcmp(((term *)a)->term, ((term *)b)->term);
