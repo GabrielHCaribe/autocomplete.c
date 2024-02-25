@@ -65,10 +65,10 @@ int lowest_match(struct term *terms, int nterms, char *substr)
            // memmove(snippet_before, &(terms)[mid -1].term, sub_len); 
            // int comp_before = strcmp(snippet, substr);
 
-            while (mid > 0 && strcmp(snippet,substr) == 0){
-                mid--;
+            //while (mid > 0 && strcmp(snippet,substr) == 0){
+            return mid;   
             }
-            return mid;
+           
 
         }
     }
