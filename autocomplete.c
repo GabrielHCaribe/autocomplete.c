@@ -60,19 +60,12 @@ int lowest_match(struct term *terms, int nterms, char *substr)
             high = mid -1;
             free(snippet);
         }
-        else{
-            //char *snippet_before = (char *)malloc(200 *sizeof(char));
-           // memmove(snippet_before, &(terms)[mid -1].term, sub_len); 
-           // int comp_before = strcmp(snippet, substr);
-
-            //while (mid > 0 && strcmp(snippet,substr) == 0){
-            return mid;   
-            }
-           
+       
+          return low; 
 
         }
     }
-}
+
 
 
 
@@ -90,27 +83,19 @@ int highest_match(term *terms, int nterms, char *substr)
         memmove(snippet, &(terms)[mid].term, sub_len); 
         int comp = strcmp(snippet, substr);
 
-        if (comp  < 0){
-            low = mid + 1;
+        if (comp  > 0){
+            right  = mid - 1;
             free(snippet);  
         }
-        else if (comp > 0){
-            high = mid -1;
+        else {
+            left = mid + 1;
             free(snippet);
         }
-        else{
-            //char *snippet_before = (char *)malloc(200 *sizeof(char));
-           // memmove(snippet_before, &(terms)[mid -1].term, sub_len); 
-           // int comp_before = strcmp(snippet, substr);
-
-            //while (mid > 0 && strcmp(snippet,substr) == 0){
-            int result = mid;
-            low = mid + 1;
-            }
+        
            
 
         }
-    return result;
+    return right;
 }
 
 
