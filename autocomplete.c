@@ -99,7 +99,33 @@ int highest_match(term *terms, int nterms, char *substr)
 }
 
 
+int compare_weight (const void *a, const void *b)
+{
+    return (((terms *)b) -> weight, ((terms *)a) -> weight);
+}
 
 
 
-void autocomplete(term **answer, int *n_answer, term *terms, int nterms, char *substr);
+void autocomplete(term **answer, int *n_answer, term *terms, int nterms, char *substr)
+{
+    int first_term_ind = lowest_match( terms, nterms, substr);
+    int last_term_ind = highest_match( terms, nterms, substr);
+    *n_answer = (last_term_ind - first_term_ind) + 1;
+
+    *answer = (term *)malloc( sizeof(term) * (*answer));
+    for (int i = 0; i < *n_answer ; i++)
+    {
+          strcpy((*answer)[i].term, terms[ i + first_term_ind].term);
+         (*answer)[i].weight = terms[ i + first_term_ind].weight;
+    }
+    qsort(*answers,*n_answer,  sizeof(term),compare_weight);
+}
+
+
+
+
+
+
+
+
+
